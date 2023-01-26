@@ -1,4 +1,4 @@
-from curses.ascii import BS
+import typing
 
 
 li =[1,2,3,4,5,6,7]
@@ -7,7 +7,7 @@ l=0
 m=int((l+e)/2)
 t=3
 
-def BST(li,t,l,m,e):
+def BST(li,t,l,m,e)->list:
     if e>=l:
         if li[m]==t:
             return m

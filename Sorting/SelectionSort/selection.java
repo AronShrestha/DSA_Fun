@@ -3,7 +3,7 @@ package Sorting.SelectionSort;
 public class selection {
     public static void main(String [] args)
     {
-        int [] a = {4,5,8,1,11,5,777,123,4567,44};
+        int [] a = {2,3,4,5,0,6,7,8,9};
         int temp;
         int min ;
         for( int i = 0 ; i<a.length-1;i++){
