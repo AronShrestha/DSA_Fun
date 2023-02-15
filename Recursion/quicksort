@@ -1,0 +1,64 @@
+
+
+
+def Quicksort(a:list,l,h)->None:
+    """
+    Quicksort with pivot as middle element
+    """
+    if l> h:
+        return
+    s= l
+    e = h 
+    m = s-int((s-h)/2)
+    pivot_element = a[m]
+    while s <= e :
+        while a[s] < pivot_element:
+            s+=1
+        while a[e]>pivot_element:
+            e -= 1
+        #swap only when it's not sorted 
+        if s<=e:
+            temp = a[s]
+            a[s] =a[e]
+            a[e] =  temp
+        
+            s+=1
+            e-=1
+    #now the pivot has come to ight place , sorting the two halves now
+    Quicksort(a,l,e)
+    Quicksort(a,s,h)
+
+
+
+def partition(a,l,h):
+    s = l
+    e = h
+    pivot_ele = a[l]
+    while s <= e:
+        while a[s] <= pivot_ele and s <len(a)-1:#2nd condition for not letting s go out of index
+            s+=1
+        while a[e] > pivot_ele and e>=0:#2nd condition for not letting s go out of index
+            e-=1
+        if s<= e:
+            temp = a[s]
+            a[s] = a[e]
+            a[e] = temp
+            s+=1
+            e-=1
+    a[l],a[e] =a[e],a[l] #simple way of swapping in python
+
+    return e
+def quickSort(a,l,h):
+    if l >= h :
+        return 
+    else:
+        pivot_pos = partition(a,l,h)
+        quickSort(a,l,pivot_pos-1)#here pivot_pos-1 as pivot_pos is sorted
+        quickSort(a,pivot_pos+1,h)#here pivot_pos-1 as pivot_pos is sorted
+
+a = [4,3,8,9,22,15,6,16]
+# Quicksort(a,0,len(a)-1)
+quickSort(a,0,len(a)-1)
+print(a)
+
+
