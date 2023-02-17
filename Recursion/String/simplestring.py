@@ -60,7 +60,7 @@ def skipword(s):
         ans = s[0]
     return ans + skipword(s[1:])
 
-print(skipword("hello word i"))
+# print(skipword("hello word i"))
 
 
 
@@ -72,4 +72,6 @@ def reversestring(s):
         ans = s[0]
         return reversestring(s[1:])+ans
 
-print(reversestring("aron"))
+# print(reversestring("aron"))
+
+
