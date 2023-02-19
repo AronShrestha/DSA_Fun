@@ -6,7 +6,7 @@ def fac(n:int)->int:
         print(n)
         return n
     else:
-        p
+        
         return n*fac(n-1)
     
 
