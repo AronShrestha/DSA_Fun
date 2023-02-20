@@ -1,58 +1,61 @@
-# def substring(sink, source):
-#     if len(source) == 0 :
-#         print(sink)
+# def substring(unprocessed, processed):
+#     if len(processed) == 0 :
+#         print(unprocessed)
 #         return 
 #     else:
-#         emited = source[0]
-#         substring(emited+sink,source[1:])
-#         substring(sink,source[1:])
+#         emited = processed[0]
+#         substring(emited+unprocessed,processed[1:])
+#         substring(unprocessed,processed[1:])
 
 
 # substring("","abc")
 
 
-def substring(sink, source,ans):
+def substring(unprocessed, processed,ans:list):
+    """
+    passing ans[list] ref
+    """
     
-    if len(source) == 0 :
-        ans.append(sink)
+    if len(processed) == 0 :
+        ans.append(unprocessed)
         
         return ans
     else:
-        emited = source[0]
-        substring(emited+sink,source[1:],ans)
-        substring(sink,source[1:],ans)
+        emited = processed[0]
+        substring(emited+unprocessed,processed[1:],ans)
+        substring(unprocessed,processed[1:],ans)
         return ans
         
 
 
-# print(substring("","abc",[]))
+print(substring("","abc",[]))
 
 
 
-# def substring(sink, source):
+# def substring(unprocessed, processed):
 #     ans = []
     
-#     if len(source) == 0 :
-#         ans.append(sink)
+#     if len(processed) == 0 :
+#         ans.append(unprocessed)
         
 #         return ans
 #     else:
-#         emited = source[0]
+#         emited = processed[0]
         
-#         ans += substring(sink,source[1:])
-#         return  substring(emited+sink,source[1:]) +ans
-def substring(sink, source):
+#         ans += substring(unprocessed,processed[1:])
+#         return  substring(emited+unprocessed,processed[1:]) +ans
+def substring(unprocessed, processed):
     ans = []
     
-    if len(source) == 0 :
-        ans.append(sink)
+    if len(processed) == 0 :
+        ans.append(unprocessed)
         
         return ans
     else:
-        emited = source[0]
-        right = substring(emited+sink,source[1:])
-        ascii =  substring(str(ord(emited))+sink,source[1:])
-        left = substring(sink,source[1:])
+        emited = processed[0]
+        right = substring(emited+unprocessed,processed[1:])
+        ascii =  substring(str(ord(emited))+unprocessed,processed[1:])
+        left = substring(unprocessed,processed[1:])
         ans+=right
         ans += ascii
         ans+=left
