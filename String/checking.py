@@ -1,22 +1,20 @@
-st = "Ss went to ssschool"
- 
 
-def a(st):
-    counter = 0
-    le = len(st)
+def sfinder(st):
     flag = True
+    maxl = len(st)
+    count = 0
+    while count < maxl: 
     
-    while counter < le:
-        if st[counter].lower() == "s":
-            if st[counter+1].lower() == "s":
-                flag = True
-                while st[counter+1] == "s":
-                    counter += 1
-            else:
+        if st[count].lower() =="s":
+            count+=1
+            if st[count].lower() != "s":
                 return False
-        counter +=1
+            else:
+                
+                while st[count].lower() =="s":
+                    count+=1
+        else:
+            count+=1
     return flag
-    
 
-
-print(a(st))
+print(sfinder("sShe went to  sssssssssschool"))
