@@ -2,9 +2,7 @@
 
 def permutation(proc,unproc,ans):
     if len(unproc) == 0:
-        ans.append(proc)
-        
-    
+        ans.append(proc) 
     else:
         for i in range(len(unproc)):
             n_proc = proc + unproc[i]
