@@ -14,11 +14,14 @@ class Node:
             return node
         else:
             prev_node = self.reverseLinkedlist(node.next)
+            print(f"node number return {prev_node.value}")
             node.next.next = node 
             node.next = None
+            # return "1"
             return prev_node
         
     def display(self,node):
+        print("We are on displaying function")
         temp = node
         while temp != None:
             print(temp.value)
