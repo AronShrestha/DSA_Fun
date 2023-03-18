@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, value) -> None:
+    def __init__(self, value=None) -> None:
         self.value = value
         self.next = None
     
@@ -9,6 +9,8 @@ class Node:
     def getNext(self):
         return self.next
 
+
+
     def merge(self,A,B):
         if A == None :
             print(f"returning B{B.value}")
@@ -16,7 +18,7 @@ class Node:
         if B == None :
             print(f"returning A {A.value}")
             return A
-        if A.value < B.value:
+        if A.value <= B.value:
             print(f"calling A {A.value} next ")
             A.next = self.merge(A.next, B)
             print(f"returning A {A.value}")
@@ -28,12 +30,53 @@ class Node:
             print(f"returning A {B.value}")
             return B
         
-    def display(self, node):
+    @staticmethod
+    def display(temp):
         print("We are on displaying function")
-        temp = node
+        
         while temp != None:
             print(temp.value)
             temp = temp.getNext()
+
+
+def IterativeMerge(A,B):
+    node = Node()
+    tempNode = node
+    if A.value == None:
+        tempNode.value = B.value
+        B = B.next
+    if B.value == None :
+        tempNode.value = A.value 
+        A = A.next
+    if A.value < B.value:
+        tempNode.value = A.value 
+        A = A.next   
+    else:
+        tempNode.value = B.value
+        B = B.next
+    while A!= None and B!= None:
+        if A.value < B.value:
+            tempNode.next = A
+            tempNode= tempNode.next
+
+            A = A.next
+        else:
+            tempNode.next = B   
+            tempNode= tempNode.next 
+            B = B.next
+    while A != None:
+        tempNode.next = A
+        tempNode= tempNode.next
+        A = A.next
+    while B != None:
+        tempNode.next = B  
+        tempNode = tempNode.next  
+        B = B.next        
+    
+    return node
+
+
+
 
 
 n1 = Node(1)
@@ -52,10 +95,10 @@ n4_4 = Node(20)
 n1_1.setNext(n2_2)
 n2_2.setNext(n3_3)
 n3_3.setNext(n4_4)
-n1.merge(n1, n1_1)
+# n1.merge(n1, n1_1)
 
+sorted_node = IterativeMerge(n1,n1_1)
+Node.display(sorted_node)
 
-print("*****************************************************")
-
-# n1.reverseLinkedlist(n1)
-n1.display(n1)
+# # n1.reverseLinkedlist(n1)
+# n1.display(n1)
