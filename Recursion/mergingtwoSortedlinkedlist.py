@@ -10,7 +10,19 @@ class Node:
         return self.next
 
 
-
+    def reverse(self,head):
+        """
+        Reversing a linkedlist
+        """
+        prev = Node(head.value)
+        next = Node(head.value)
+        curr = head.getNext()
+        while curr != None:
+            next = curr.getNext()
+            curr.next = prev 
+            prev = curr
+            curr = next 
+        return curr 
     def merge(self,A,B):
         if A == None :
             print(f"returning B{B.value}")
@@ -97,8 +109,10 @@ n2_2.setNext(n3_3)
 n3_3.setNext(n4_4)
 # n1.merge(n1, n1_1)
 
-sorted_node = IterativeMerge(n1,n1_1)
-Node.display(sorted_node)
+# sorted_node = IterativeMerge(n1,n1_1)
+Node.display(n1)
 
+n1.reverse(n1)
+Node.display(n4)
 # # n1.reverseLinkedlist(n1)
 # n1.display(n1)
