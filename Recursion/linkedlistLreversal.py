@@ -23,7 +23,7 @@ class Node:
     def display(self,node):
         print("We are on displaying function")
         temp = node
-        while temp != None:
+        while temp != None: 
             print(temp.value)
             temp = temp.getNext()
 

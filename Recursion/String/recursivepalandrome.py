@@ -9,4 +9,4 @@ def recursive_palandrome(string):
     
     return False
 
-print(recursive_palandrome(""))
+print(recursive_palandrome("acca"))
